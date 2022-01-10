@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {{>header}}
+</head>
+<body>
+    {{>navbar}}
+    <div class="my-form">
+    <form action="/login" method="POST">
+        <input type="email" placeholder="Your email" required name="mail" class="mail"><br/>
+        <input type="password" placeholder="Your password" required name="password" class="pwd"><br/>
+        <input type="checkbox" name="remember">
+        <span>Remeber me</span>
+        <button type="submit" class="btn">Login</button><br/>
+    </form>
+    </div>
+    {{>footer}}
+</body>
+</html>
