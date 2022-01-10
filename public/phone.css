@@ -37,14 +37,6 @@
 #services .box img{
     width: auto;
 }
-#clients{
-    flex-wrap: wrap;
-}
-#clients img{
-    padding: 2px 6px;
-    width: 66px;
-    height: auto;
-}
 #contact-box form{
     width: 80%;
 }
