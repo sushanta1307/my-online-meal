@@ -33,15 +33,18 @@ body{
     height: 31px;
     margin: -13px 8px;
 }
-#navbar ul{
+/* #navbar ul{ */
+ul{
     display: flex;
 }
-#navbar ul li{
+/* #navbar ul li{ */
+li{
     list-style: none;
     font-weight: bold;
     font-size: 1.3rem;
 }
-#navbar ul li a{
+/* #navbar ul li a{ */
+a{
     display: block;
     color:white;
     padding: 3px 25px;
