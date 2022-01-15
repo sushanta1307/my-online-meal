@@ -3,24 +3,25 @@ const router = new express.Router();
 const RegisterUser = require("../models/registerUser");
 const RegisterChef = require("../models/registerChef");
 const FeedbackUser = require('../models/feedbacks');
+let isLoggedIn = false;
 
 router.get("/", (req,res)=>{
-    res.render("index")
+    res.render("index",{Login: isLoggedIn ? "Sushanta" :"Login"})
 });
 router.get("/services", (req,res)=>{
-    res.render("services")
+    res.render("services",{Login: isLoggedIn ? "Sushanta" :"Login"})
 });
 router.get("/login", (req,res)=>{
-    res.render("login")
+    res.render("login",{Login: isLoggedIn ? "Sushanta" :"Login"})
 });
 router.get("/registeruser", (req,res)=>{
-    res.render("registeruser")
+    res.render("registeruser",{Login: isLoggedIn ? "Sushanta" :"Login"})
 });
 router.get("/registerchef", (req,res)=>{
-    res.render("registerchef")
+    res.render("registerchef",{Login: isLoggedIn ? "Sushanta" :"Login"})
 });
 router.get("/contact", (req,res)=>{
-    res.render("contact")
+    res.render("contact",{Login: isLoggedIn ? "Sushanta" :"Login"})
 });
 router.post("/contact",async (req,res)=>{
     // res.render("contact")
@@ -31,7 +32,7 @@ router.post("/contact",async (req,res)=>{
         message:req.body.message
     })
     const userDetails = await user.save();
-    // res.send(userDetails)
+    console.log(userDetails);
     res.send("Thanks for your feedback")
 });
 router.post("/registeruser", async (req,res)=>{
@@ -50,7 +51,8 @@ router.post("/registeruser", async (req,res)=>{
                 email: req.body.mail
             })
             const saved  = await reg.save();
-            res.status(200).render("index");
+            console.log(saved);
+            res.status(200).render("index",{Login: isLoggedIn ? "Sushanta" :"Login"});
         }
         else{
             res.send("Passwords not matching");
@@ -71,7 +73,7 @@ router.post("/registerchef", async (req,res)=>{
           email: req.body.mail,
         });
         const saved = await reg.save();
-        res.status(200).render("index");
+        res.status(200).render("index",{Login: isLoggedIn ? "Sushanta" :"Login"});
     }
     catch(error) {
         res.status(404).send(error);
@@ -82,9 +84,10 @@ router.post("/login", async(req,res)=>{
     try {
         const mail = req.body.mail;
         const password = req.body.password;
-        const usermail = await Register.findOne({email:mail});
+        const usermail = await RegisterUser.findOne({email:mail});
         if(usermail.password === password){
-            res.render('index');
+            isLoggedIn = true;
+            res.render('index',{Login: isLoggedIn ? "Sushanta" : "Login"});
         }
         else{
             res.send("Invalid login credentials");

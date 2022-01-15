@@ -15,10 +15,10 @@ app.use(express.static(static_path));
 app.set('view engine', 'hbs');
 app.set("views",template_path);
 hbs.registerPartials(partials_path);
-app.use(myRouter);
 
 app.use(express.json())
 app.use(express.urlencoded({extended:false}));
+app.use(myRouter);
 
 app.listen(port,()=>{
     console.log(`Server is running at port no ${port}`)

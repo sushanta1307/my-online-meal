@@ -1,9 +1,11 @@
+let dt = new Date();
 setInterval(() => {
-    document.getElementById("date").innerHTML = new Date();
+    let hh = dt.getHours();
+    let t = (hh%12) + ' : ' + dt.getMinutes() + ' : ' + dt.getSeconds() + (hh>=12 ? " PM" : " AM");
+    document.getElementById("time").innerHTML = t;
 },1000);
 
+let text = dt.getDate()+ ' : ' + dt.getDay() + ' : ' + dt.getFullYear();
+document.getElementById("date").innerHTML = text;
 
 
-// const d = new Date();
-// let text = d.getDate() ; 
-// document.getElementById("date").innerHTML = text;

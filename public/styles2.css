@@ -56,14 +56,16 @@ a{
     color:black;
     background-color: white;
 }
-#date{
+#time{
     color:rgb(24, 14, 58);
     position: absolute;
     top: 8px;
-    left: 50%;
+    right: 110px;
     font-size: 1.2rem;
     color: white;
 }
+/* #date{
+} */
 #home{
     display: flex;
     flex-direction: column;
@@ -201,5 +203,10 @@ footer{
     background-color: black;
     opacity: 0.6;
     color: white;
-    padding: 10px 15px;
+    padding: 2px auto;
+}
+footer div span{
+    position: absolute;
+    float: right;
+    right: 8%;
 }
